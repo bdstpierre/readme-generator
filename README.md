@@ -1,40 +1,4 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
-const util = require('util');
-
-const writeFileAsync = util.promisify(fs.writeFile);
-
-const promptUser = () => {
-    return inquirer.prompt([
-        {
-            type: 'input',
-            name: 'name',
-            message: 'Enter your name:',
-        },{
-            type: 'input',
-            name: 'gitName',
-            message: 'Enter your github username:',
-        },
-        {
-            type: 'input',
-            name: 'projectName',
-            message: 'What is the name of your project repo?',
-        },
-        {
-            type: 'input',
-            name: 'year',
-            message: 'Enter the copywrite year for your project:',
-        },
-        {
-            type: 'input',
-            name: 'description',
-            message: 'Enter a description of your project.  Include the following info as appropriate:\n- What was your motivation?\n- Why did you buiild the project?\n- What problem does it solve?\n- What did you learn?\n- What makes your project stand out?'
-        }
-    ])
-};
-
-const generateReadme = (answers) =>
-`# ${answers.projectName}
+# readme-generator
 ## Description
 Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
 - What was your motivation?
@@ -71,13 +35,3 @@ Badges aren't necessary, per se, but they demonstrate street cred. Badges let ot
 ## How to Contribute
 
 ## Tests
-`;
-
-const init = () => {
-    promptUser()
-    .then((answers) => writeFileAsync('README.md', generateReadme(answers)))
-    .then(() => console.log('Successfully wrote to README.md'))
-    .catch((err) => console.error(err));
-};
-
-init();
