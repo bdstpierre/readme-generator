@@ -57,7 +57,10 @@ const promptUser = () => {
             message: 'Give credit for the outside resouces you used (libraries, modules, API\'s, etc.):\n',
         },
         {
-            
+            type: 'list',
+            name: 'license',
+            message: 'Select the license you want to use:',
+            choices: ['Apache License 2.0', 'BSD 3-Clause New or Revised license', 'BSD 2-Clause Simplified or FreeBSD license', 'GNU General Public License (GPL)', 'GNU Library or Lesser General Public License (LGPL)', 'MIT license', 'Mozilla Public License 2.0', 'Common Deevlopment and Distribution License', 'Eclipse Public License version 2.0']
         }
     ])
 };
@@ -74,6 +77,9 @@ If your README is long, add a table of contents to make it easy for users to fin
 - [Credits](#credits)
 - [Questions](#questions)
 - [License](#license)
+- [Features](#features)
+- [How to Contribute](#contribute)
+- [Tests](#tests)
 ## Installation
 ${answers.installation}
 ## Usage
@@ -85,16 +91,12 @@ If you have any questions you can contact me through my github user profile: htt
 or by emailing me at ${answers.email}
 ## License
 ${answers.license}
----
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-## Badges
-![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
 ## Features
-
+${answers.features}
 ## How to Contribute
-
+${answers.contribute}
 ## Tests
+${answers.tests}
 `;
 
 const init = () => {
