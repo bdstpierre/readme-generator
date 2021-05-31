@@ -10,7 +10,13 @@ const promptUser = () => {
             type: 'input',
             name: 'name',
             message: 'Enter your name:',
-        },{
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter your email address:',
+        },
+        {
             type: 'input',
             name: 'gitName',
             message: 'Enter your github username:',
@@ -22,13 +28,36 @@ const promptUser = () => {
         },
         {
             type: 'input',
+            name: 'screenshot',
+            message: 'Enter the path to a screenshot of your project:',
+        },
+        {
+            type: 'input',
             name: 'year',
             message: 'Enter the copywrite year for your project:',
         },
         {
             type: 'input',
             name: 'description',
-            message: 'Enter a description of your project.  Include the following info as appropriate:\n- What was your motivation?\n- Why did you buiild the project?\n- What problem does it solve?\n- What did you learn?\n- What makes your project stand out?'
+            message: 'Enter a description of your project.  Include the following info as appropriate:\n- What was your motivation?\n- Why did you buiild the project?\n- What problem does it solve?\n- What did you learn?\n- What makes your project stand out?\n',
+        },
+        {
+            type: 'input',
+            name: 'installation',
+            message: 'Enter information on how someone should install your project:\n',
+        },
+        {
+            type: 'input',
+            name: 'usage',
+            message: 'Enter information on how a user would use your project:\n',
+        },
+        {
+            type: 'input',
+            name: 'credits',
+            message: 'Give credit for the outside resouces you used (libraries, modules, API\'s, etc.):\n',
+        },
+        {
+            
         }
     ])
 };
@@ -36,31 +65,26 @@ const promptUser = () => {
 const generateReadme = (answers) =>
 `# ${answers.projectName}
 ## Description
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+${answers.description}
+![Screenshot of the apllication or project](${answers.screenshot})
 ## Table of Contents (Optional)
 If your README is long, add a table of contents to make it easy for users to find what they need.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
+- [Questions](#questions)
 - [License](#license)
 ## Installation
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+${answers.installation}
 ## Usage
-Provide instructions and examples for use. Include screenshots as needed.
-To add a screenshot, create an 'assets/images' folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-    md
-    ![alt text](assets/images/screenshot.png)
-    
+${answers.usage}
 ## Credits
-List your collaborators, if any, with links to their GitHub profiles.
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-If you followed tutorials, include links to those here as well.
+${answers.credits}
+## Questions
+If you have any questions you can contact me through my github user profile: https://github.com/${answers.gitName}\n
+or by emailing me at ${answers.email}
 ## License
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+${answers.license}
 ---
 🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
 ## Badges
