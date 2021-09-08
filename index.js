@@ -541,7 +541,7 @@ ${answers.tests}
 
 const init = () => {
     promptUser()
-    .then((answers) => writeFileAsync('README.md', generateReadme(answers)))
+    .then((answers) => writeFileAsync('myREADME.md', generateReadme(answers)))
     .then(() => console.log('Successfully wrote to README.md'))
     .catch((err) => console.error(err));
 };
